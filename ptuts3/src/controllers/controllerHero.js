@@ -1,5 +1,9 @@
 export default class ControllerHero{
     constructor(hero) {
+        document.getElementById('avancer').addEventListener('click',event=>{
+            hero.moveLeft();
+            hero.stop();
+        });
         document.addEventListener('keydown', event =>{
             switch (event.keyCode){
                 case 37 : hero.moveLeft();break;

@@ -5,15 +5,15 @@ export default class Hero {
         this.width = 50;
         this.height = 50;
 
-        this.maxSpeed = 7;
+        this.maxSpeed = 50;
         this.speed = {
             x: 0,
             y: 0
         }
 
         this.position = {
-            x : gameWidth/2 - this.width/2,
-            y : gameHeight/2 - this.height/2
+            x : 0,
+            y : 0
         }
     }
 
@@ -30,6 +30,8 @@ export default class Hero {
     }
     moveLeft(){
         this.speed.x = -this.maxSpeed;
+        this.position.x += this.speed.x;
+
     }
     moveDown(){
         this.speed.y = this.maxSpeed;
