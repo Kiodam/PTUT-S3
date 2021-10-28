@@ -12,8 +12,8 @@ export default class Hero {
         }
 
         this.position = {
-            x : 0,
-            y : 0
+            x : this.width*5,
+            y : this.height*3
         }
     }
 
@@ -24,9 +24,11 @@ export default class Hero {
 
     moveRight(){
         this.speed.x = this.maxSpeed;
+        this.position.x += this.speed.x;
     }
     moveUp(){
         this.speed.y = -this.maxSpeed ;
+        this.position.y += this.speed.y;
     }
     moveLeft(){
         this.speed.x = -this.maxSpeed;
@@ -35,6 +37,7 @@ export default class Hero {
     }
     moveDown(){
         this.speed.y = this.maxSpeed;
+        this.position.y += this.speed.y;
     }
 
     stop(){
