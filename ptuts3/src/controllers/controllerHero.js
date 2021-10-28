@@ -4,22 +4,22 @@ export default class ControllerHero{
         document.getElementById('gauche').addEventListener('click',event=>{
             hero.moveLeft();
             hero.stop();
-            div.innerHTML += " Gauche ";
+            div.innerHTML += "Gauche" + "<br />";
         });
         document.getElementById('bas').addEventListener('click',event=>{
             hero.moveDown();
             hero.stop();
-            div.innerHTML += " Bas ";
+            div.innerHTML += "Bas" + "<br />";
         });
         document.getElementById('haut').addEventListener('click',event=>{
             hero.moveUp();
             hero.stop();
-            div.innerHTML += " Haut ";
+            div.innerHTML += "Haut" + "<br />";
         });
         document.getElementById('droite').addEventListener('click',event=>{
             hero.moveRight();
             hero.stop();
-            div.innerHTML += " Droite ";
+            div.innerHTML += "Droite" + "<br />";
         });
 
         // document.addEventListener('keydown', event =>{
