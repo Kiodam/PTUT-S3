@@ -39,7 +39,9 @@ export default class Hero {
     }
 
     drawHero(context){
-        context.drawImage(this.hero_img[this.currentDirection],this.position.x,this.position.y,this.width,this.height);
+        let hero_img = new Image();
+        hero_img.src = '../img/bug.png';
+        context.drawImage(hero_img,this.position.x,this.position.y,this.width,this.height);
     }
 
     move(){

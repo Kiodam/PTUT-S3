@@ -1,7 +1,5 @@
 const canvas = document.getElementById('playerCommandPanel');
 
-
-
 function start(event, id) {
     let currentDroppable = null;
 
@@ -32,7 +30,6 @@ function start(event, id) {
         if (!elemBelow) return;
 
     }
-
     document.addEventListener('mousemove', onMouseMove);
 
     obj.onclick = function() {
@@ -45,5 +42,4 @@ function start(event, id) {
         return false;
     };
 }
-
 
