@@ -41,10 +41,9 @@ function start(event, id) {
         canvas.appendChild(obj);
 
     };
+    obj.ondragstart = function() {
+        return false;
+    };
+}
 
-};
 
-
-obj.ondragstart = function() {
-    return false;
-};

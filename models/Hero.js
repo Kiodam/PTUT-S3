@@ -10,7 +10,7 @@ export default class Hero {
         this.gameHeight = gameHeight;
         this.width = cellSize;
         this.height = cellSize;
-        this.currentDirection = Hero._FACING_DOWN;
+        this.currentDirection = 2;
         this.maxSpeed = 50;
         this.speed = {
             x: 0,
@@ -22,7 +22,7 @@ export default class Hero {
             y : this.height*3
         }
 
-        this.hero_img = new Array();
+        this.hero_img = [];
 
         this.hero_img[0] = new Image();
         this.hero_img[0].src = '../img/pp_ptut_up.png';
@@ -36,31 +36,71 @@ export default class Hero {
         this.hero_img[3] = new Image();
         this.hero_img[3].src = '../img/pp_ptut_left.png';
 
-        this.hero_img.src = '../img/pp_ptut_down.png';
     }
 
     drawHero(context){
-        context.drawImage(this.hero_img[2],this.position.x,this.position.y,this.width,this.height);
+        context.drawImage(this.hero_img[this.currentDirection],this.position.x,this.position.y,this.width,this.height);
     }
 
-    moveRight(){
-        // this.speed.x = this.maxSpeed;
-        // this.position.x += this.speed.x;
-        this.Turndirection=Hero._TURNING_RIGHT;
+    move(){
+        switch(this.currentDirection){
+            case 0: {
+                this.speed.y = -this.maxSpeed;
+                this.position.y += this.speed.y;
+            };break;
+
+            case 1: {
+                this.speed.x = this.maxSpeed;
+                this.position.x += this.speed.x;
+            };break;
+
+            case 2: {
+                this.speed.y = this.maxSpeed;
+                this.position.y += this.speed.y;
+            };break;
+
+            case 3: {
+                this.speed.x = -this.maxSpeed;
+                this.position.x += this.speed.x;
+            };break;
+        }
     }
-    moveUp(){
-        this.speed.y = -this.maxSpeed ;
-        this.position.y += this.speed.y;
+
+    rotate(dir){
+        if(dir==='r'){
+            if (!(this.currentDirection>=(this.hero_img.length-1))){
+                this.currentDirection+=1;
+            }else{
+                this.currentDirection=0;
+            }
+        }else if(dir==='l'){
+            if (!(this.currentDirection<=0)){
+                this.currentDirection-=1;
+            }else{
+                this.currentDirection=3;
+            }
+        }
+
     }
-    moveLeft(){
-        // this.speed.x = -this.maxSpeed;
-        // this.position.x += this.speed.x;
-        this.Turndirection=Hero._TURNING_LEFT;
-    }
-    moveDown(){
-        this.speed.y = this.maxSpeed;
-        this.position.y += this.speed.y;
-    }
+
+    // moveRight(){
+    //     // this.speed.x = this.maxSpeed;
+    //     // this.position.x += this.speed.x;
+    //     this.currentDirection=Hero._FACING_RIGHT;
+    // }
+    // moveUp(){
+    //     this.speed.y = -this.maxSpeed ;
+    //     this.position.y += this.speed.y;
+    // }
+    // moveLeft(){
+    //     // this.speed.x = -this.maxSpeed;
+    //     // this.position.x += this.speed.x;
+    //     this.currentDirection=Hero._FACING_LEFT;
+    // }
+    // moveDown(){
+    //     this.speed.y = this.maxSpeed;
+    //     this.position.y += this.speed.y;
+    // }
 
     stop(){
         this.speed.x = 0;

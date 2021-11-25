@@ -2,22 +2,22 @@ export default class ControllerHero{
     constructor(hero) {
         let div = document.getElementById("actions");
         document.getElementById('gauche').addEventListener('click',event=>{
-            hero.moveLeft();
+            hero.rotate('l');
             hero.stop();
             div.innerHTML += "Gauche" + "<br />";
         });
         document.getElementById('bas').addEventListener('click',event=>{
-            hero.moveDown();
+            hero.move();
             hero.stop();
             div.innerHTML += "Bas" + "<br />";
         });
         document.getElementById('haut').addEventListener('click',event=>{
-            hero.moveUp();
+            hero.move();
             hero.stop();
             div.innerHTML += "Haut" + "<br />";
         });
         document.getElementById('droite').addEventListener('click',event=>{
-            hero.moveRight();
+            hero.rotate('r');
             hero.stop();
             div.innerHTML += "Droite" + "<br />";
         });
