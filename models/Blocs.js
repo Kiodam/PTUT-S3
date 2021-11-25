@@ -1,12 +1,17 @@
-let currentDroppable = null;
-let obj = document.getElementById('gauche');
+const canvas = document.getElementById('playerCommandPanel');
 
-obj.onmousedown = function(event) {
+
+
+function start(event, id) {
+    let currentDroppable = null;
+
+    let obj = document.getElementById(id);
 
     let shiftX = event.clientX - obj.getBoundingClientRect().left;
     let shiftY = event.clientY - obj.getBoundingClientRect().top;
 
     obj.style.position = 'absolute';
+    obj.style.boxShadow = '10px 5px 5px black';
     obj.style.zIndex = 1000;
     document.body.append(obj);
 
@@ -26,35 +31,19 @@ obj.onmousedown = function(event) {
 
         if (!elemBelow) return;
 
-        let droppableBelow = elemBelow.closest('.droppable');
-        if (currentDroppable != droppableBelow) {
-            if (currentDroppable) { // null lorsque nous étions sur un élément déposable avant cet évènement
-                leaveDroppable(currentDroppable);
-            }
-            currentDroppable = droppableBelow;
-            if (currentDroppable) { // null si nous ne n'atterrissions pas sur un élément déposable maintenant
-                // (peut être a juste quitte l'objet déposable)
-                enterDroppable(currentDroppable);
-            }
-        }
     }
 
     document.addEventListener('mousemove', onMouseMove);
 
-    obj.onmouseup = function() {
+    obj.onclick = function() {
         document.removeEventListener('mousemove', onMouseMove);
-        obj.onmouseup = null;
+        obj.style.boxShadow = '';
+        canvas.appendChild(obj);
+
     };
 
 };
 
-function enterDroppable(elem) {
-    elem.style.background = 'pink';
-}
-
-function leaveDroppable(elem) {
-    elem.style.background = '';
-}
 
 obj.ondragstart = function() {
     return false;
