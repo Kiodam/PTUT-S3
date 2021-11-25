@@ -25,23 +25,21 @@ export default class Hero {
         this.hero_img = [];
 
         this.hero_img[0] = new Image();
-        this.hero_img[0].src = '../img/pp_ptut_up.png';
+        this.hero_img[0].src = '../img/bug_up.png';
 
         this.hero_img[1] = new Image();
-        this.hero_img[1].src = '../img/pp_ptut_right.png';
+        this.hero_img[1].src = '../img/bug_right.png';
 
         this.hero_img[2] = new Image();
-        this.hero_img[2].src = '../img/pp_ptut_down.png';
+        this.hero_img[2].src = '../img/bug_down.png';
 
         this.hero_img[3] = new Image();
-        this.hero_img[3].src = '../img/pp_ptut_left.png';
+        this.hero_img[3].src = '../img/bug_left.png';
 
     }
 
     drawHero(context){
-        let hero_img = new Image();
-        hero_img.src = '../img/bug.png';
-        context.drawImage(hero_img,this.position.x,this.position.y,this.width,this.height);
+        context.drawImage(this.hero_img[this.currentDirection],this.position.x,this.position.y,this.width,this.height);
     }
 
     move(){
