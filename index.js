@@ -16,6 +16,9 @@ let map = new Map(GAME_WIDTH_CASES,GAME_HEIGHT_CASES);
 canvas.width=GAME_WIDTH;
 canvas.height= GAME_HEIGHT;
 
+document.getElementById("playerCommandPanel").height=GAME_HEIGHT;
+document.getElementById("board").width=GAME_WIDTH;
+
 new ControllerHero(hero);
 
 let lastTime = 0;

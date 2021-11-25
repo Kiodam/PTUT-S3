@@ -14,7 +14,7 @@
     display: inline-flex;
 }
 
-.board {
+#board {
     margin: 20px;
 }
 
@@ -91,6 +91,28 @@ button:hover {
     background-color: #686A8DFF;
 }
 
-.scoreBoard a{
+.scoreBoard div{
     margin-right: 25%;
+}
+
+#board{
+    float: left;
+}
+
+#gamePanel{
+    width:100%;
+}
+
+#playerCommandPanel{
+    overflow: auto;
+    width: 350px;
+    height: 600px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #d99e61;
+    border-radius: 5px;
+}
+
+#test{
+    padding: 20px;
 }
