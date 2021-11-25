@@ -6,6 +6,20 @@ export default class Blocs {
         this.action = action
     }
 
-    
+    getColor() {
+        return this.color
+    }
 
+    setColor(color) {
+        this.color = color
+
+    }
+
+    getCat() {
+        return this.cat
+    }
+
+    getAction() {
+        return this.action
+    }
 }
