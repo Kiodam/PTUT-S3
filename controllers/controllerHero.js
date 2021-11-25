@@ -3,6 +3,7 @@ export default class ControllerHero{
         let div = document.getElementById("actions");
         document.getElementById('gauche').addEventListener('click',event=>{
             hero.moveLeft();
+            hero.hero_img.setAttribute("style","transform: rotate(90deg)");
             hero.stop();
             div.innerHTML += "Gauche" + "<br />";
         });
@@ -22,22 +23,5 @@ export default class ControllerHero{
             div.innerHTML += "Droite" + "<br />";
         });
 
-        // document.addEventListener('keydown', event =>{
-        //     switch (event.keyCode){
-        //         case 37 : hero.moveLeft();break;
-        //         case 38 : hero.moveUp();break;
-        //         case 39 : hero.moveRight();break;
-        //         case 40 : hero.moveDown();break;
-        //     }
-        // });
-        //
-        // document.addEventListener('keyup', event =>{
-        //     switch (event.keyCode){
-        //         case 37 : hero.stop();break;
-        //         case 38 : hero.stop();break;
-        //         case 39 : hero.stop();break;
-        //         case 40 : hero.stop();break;
-        //     }
-        // });
     }
 }

@@ -6,7 +6,7 @@ export default class Hero {
         this.gameHeight = gameHeight;
         this.width = cellSize;
         this.height = cellSize;
-
+        this.currentDirection = Hero._FACING_DOWN;
         this.maxSpeed = 50;
         this.speed = {
             x: 0,
@@ -17,12 +17,12 @@ export default class Hero {
             x : this.width*5,
             y : this.height*3
         }
+        this.hero_img = new Image();
+        this.hero_img.src = '../img/pp_ptut.png';
     }
 
     drawHero(context){
-        let hero_img = new Image();
-        hero_img.src = '../img/pp_ptut.png';
-        context.drawImage(hero_img,this.position.x,this.position.y,this.width,this.height);
+        context.drawImage(this.hero_img,this.position.x,this.position.y,this.width,this.height);
     }
 
     moveRight(){
@@ -36,7 +36,6 @@ export default class Hero {
     moveLeft(){
         this.speed.x = -this.maxSpeed;
         this.position.x += this.speed.x;
-
     }
     moveDown(){
         this.speed.y = this.maxSpeed;
