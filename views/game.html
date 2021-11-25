@@ -22,19 +22,27 @@
             <a class="cta" href="#"><button>Mon compte</button></a>
         </header>
 
-        <div class="board">
-            <div class="container">
-                <canvas id="canvaMap" width="550" height="400"></canvas>
-                <div id="actions" class="containerTxt"></div>
+        <div id="gamePanel">
+            <div class="scoreBoard">
+                <a>lvlName</a>
+                <a>Score : 0 </a>
+                <a></a>
             </div>
-            <div>
-                <button id="gauche">Gauche</button>
-                <button id="bas">Bas</button>
-                <button id="haut">Haut</button>
-                <button id="droite">Droite</button>
+            <div class="board">
+                <div class="container">
+                    <canvas id="canvaMap" width="550" height="400"></canvas>
+                    <div id="actions" class="containerTxt"></div>
+                </div>
+                <div>
+                    <button id="gauche">Gauche</button>
+                    <button id="bas">Bas</button>
+                    <button id="haut">Haut</button>
+                    <button id="droite">Droite</button>
+                </div>
+                <script type="module" src="../index.js"></script>
             </div>
-            <script type="module" src="../index.js"></script>
         </div>
+
 
     </body>
 </html>
