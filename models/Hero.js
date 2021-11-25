@@ -1,9 +1,11 @@
 export default class Hero {
+
     constructor(gameWidth, gameHeight) {
+        let cellSize = 50;
         this.gameWidht = gameWidth;
         this.gameHeight = gameHeight;
-        this.width = 50;
-        this.height = 50;
+        this.width = cellSize;
+        this.height = cellSize;
 
         this.maxSpeed = 50;
         this.speed = {
