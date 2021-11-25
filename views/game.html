@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>Jeu</title>
         <link rel="stylesheet" href="../css/styles.css">
-
     </head>
     <body>
         <header>
@@ -24,25 +23,29 @@
 
         <div id="gamePanel">
             <div class="scoreBoard">
-                <a>lvlName</a>
-                <a>Score : 0 </a>
-                <a></a>
+                <div>LvL 1 : Tutoriel</div>
+                <div>Score : 0 </div>
+                <div></div>
             </div>
-            <div class="board">
-                <div class="container">
-                    <canvas id="canvaMap" width="550" height="400"></canvas>
-                    <div id="actions" class="containerTxt"></div>
+            <div id="test">
+                <div id="board">
+                    <div class="container">
+                        <canvas id="canvaMap"></canvas>
+                        <div id="actions" class="containerTxt"></div>
+                    </div>
+                    <div>
+                        <button id="gauche" onclick="start(event, 'gauche')">Gauche</button>
+                        <button id="bas" onclick="start(event, 'bas')">Bas</button>
+                        <button id="haut" onclick="start(event, 'haut')">Haut</button>
+                        <button id="droite" onclick="start(event, 'droite')">Droite</button>
+                    </div>
+                    <script type="module" src="../index.js"></script>
                 </div>
-                <div>
-                    <button id="gauche">Gauche</button>
-                    <button id="bas">Bas</button>
-                    <button id="haut">Haut</button>
-                    <button id="droite">Droite</button>
+                <div id="playerCommandPanel">
                 </div>
-                <script type="module" src="../index.js"></script>
             </div>
+
         </div>
-
-
+        <script type="text/javascript" src="../models/Blocs.js"></script>
     </body>
 </html>

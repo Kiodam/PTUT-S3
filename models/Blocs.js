@@ -1,25 +1,47 @@
-export default class Blocs {
+const canvas = document.getElementById('playerCommandPanel');
 
-    constructor(color,cat,action) {
-        this.color = color
-        this.cat = cat
-        this.action = action
+function start(event, id) {
+    let currentDroppable = null;
+
+    let obj = document.getElementById(id);
+
+    let shiftX = event.clientX - obj.getBoundingClientRect().left;
+    let shiftY = event.clientY - obj.getBoundingClientRect().top;
+
+    obj.style.position = 'absolute';
+    obj.style.boxShadow = '10px 5px 5px black';
+    obj.style.zIndex = 1000;
+    document.body.append(obj);
+
+    moveAt(event.pageX, event.pageY);
+
+    function moveAt(pageX, pageY) {
+        obj.style.left = pageX - shiftX + 'px';
+        obj.style.top = pageY - shiftY + 'px';
     }
 
-    getColor() {
-        return this.color
-    }
+    function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
 
-    setColor(color) {
-        this.color = color
+        obj.hidden = true;
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+        obj.hidden = false;
+
+        if (!elemBelow) return;
 
     }
+    document.addEventListener('mousemove', onMouseMove);
 
-    getCat() {
-        return this.cat
-    }
+    obj.onclick = function() {
+        document.removeEventListener('mousemove', onMouseMove);
+        obj.style.boxShadow = '';
+        canvas.appendChild(obj);
 
-    getAction() {
-        return this.action
-    }
-}
+    };
+
+};
+
+
+obj.ondragstart = function() {
+    return false;
+};
