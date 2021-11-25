@@ -25,6 +25,10 @@ export default class ControllerHero{
             document.getElementById("score").innerText=parseInt(document.getElementById("score").innerText)+4;
             div.innerHTML += "Droite" + "<br />";
         });
+        document.getElementById('clear').addEventListener('click',event=>{
+            document.getElementById("score").innerText=0;
+            div.innerHTML = "";
+        });
 
         // document.addEventListener('keydown', event =>{
         //     switch (event.keyCode){
