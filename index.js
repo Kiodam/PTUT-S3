@@ -5,13 +5,16 @@ import ControllerHero from "./controllers/controllerHero.js";
 let canvas = document.getElementById("canvaMap");
 let context = canvas.getContext("2d");
 
-const GAME_WIDTH = canvas.width;
-const GAME_HEIGHT = canvas.height;
-const GAME_WIDTH_CASES = 11;
-const GAME_HEIGHT_CASES = 8;
+
+const GAME_WIDTH_CASES = 10;
+const GAME_HEIGHT_CASES = 10;
+const GAME_WIDTH = GAME_WIDTH_CASES*50;
+const GAME_HEIGHT = GAME_HEIGHT_CASES*50;
 
 let hero = new Hero(GAME_WIDTH, GAME_HEIGHT);
 let map = new Map(GAME_WIDTH_CASES,GAME_HEIGHT_CASES);
+canvas.width=GAME_WIDTH;
+canvas.height= GAME_HEIGHT;
 
 new ControllerHero(hero);
 
