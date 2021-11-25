@@ -21,7 +21,7 @@ export default class Hero {
 
     drawHero(context){
         let hero_img = new Image();
-        hero_img.src = '../img/pp_ptut.png';
+        hero_img.src = '../img/bug.png';
         context.drawImage(hero_img,this.position.x,this.position.y,this.width,this.height);
     }
 
