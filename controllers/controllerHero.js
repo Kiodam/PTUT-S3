@@ -3,7 +3,6 @@ export default class ControllerHero{
         let div = document.getElementById("actions");
         document.getElementById('gauche').addEventListener('click',event=>{
             hero.moveLeft();
-            hero.hero_img.setAttribute("style","transform: rotate(90deg)");
             hero.stop();
             div.innerHTML += "Gauche" + "<br />";
         });

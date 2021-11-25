@@ -1,4 +1,8 @@
 export default class Hero {
+    static _FACING_UP=0;
+    static _FACING_RIGHT=1;
+    static _FACING_DOWN=2;
+    static _FACING_LEFT =3;
 
     constructor(gameWidth, gameHeight) {
         let cellSize = 50;
@@ -17,25 +21,41 @@ export default class Hero {
             x : this.width*5,
             y : this.height*3
         }
-        this.hero_img = new Image();
-        this.hero_img.src = '../img/pp_ptut.png';
+
+        this.hero_img = new Array();
+
+        this.hero_img[0] = new Image();
+        this.hero_img[0].src = '../img/pp_ptut_up.png';
+
+        this.hero_img[1] = new Image();
+        this.hero_img[1].src = '../img/pp_ptut_right.png';
+
+        this.hero_img[2] = new Image();
+        this.hero_img[2].src = '../img/pp_ptut_down.png';
+
+        this.hero_img[3] = new Image();
+        this.hero_img[3].src = '../img/pp_ptut_left.png';
+
+        this.hero_img.src = '../img/pp_ptut_down.png';
     }
 
     drawHero(context){
-        context.drawImage(this.hero_img,this.position.x,this.position.y,this.width,this.height);
+        context.drawImage(this.hero_img[2],this.position.x,this.position.y,this.width,this.height);
     }
 
     moveRight(){
-        this.speed.x = this.maxSpeed;
-        this.position.x += this.speed.x;
+        // this.speed.x = this.maxSpeed;
+        // this.position.x += this.speed.x;
+        this.Turndirection=Hero._TURNING_RIGHT;
     }
     moveUp(){
         this.speed.y = -this.maxSpeed ;
         this.position.y += this.speed.y;
     }
     moveLeft(){
-        this.speed.x = -this.maxSpeed;
-        this.position.x += this.speed.x;
+        // this.speed.x = -this.maxSpeed;
+        // this.position.x += this.speed.x;
+        this.Turndirection=Hero._TURNING_LEFT;
     }
     moveDown(){
         this.speed.y = this.maxSpeed;
