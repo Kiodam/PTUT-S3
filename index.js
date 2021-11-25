@@ -5,7 +5,6 @@ import ControllerHero from "./controllers/controllerHero.js";
 let canvas = document.getElementById("canvaMap");
 let context = canvas.getContext("2d");
 
-
 const GAME_WIDTH_CASES = 12;
 const GAME_HEIGHT_CASES = 12;
 const GAME_WIDTH = GAME_WIDTH_CASES*50;
