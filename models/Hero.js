@@ -84,14 +84,26 @@ export default class Hero {
     }
 
     execute(actions){
-        actions.forEach(e=>{setInterval(() =>{
-            switch (e){
-                case "avancer" : this.move();this.stop();break;
-                case"gauche" : this.rotate('l');this.stop();break;
-                case"droite" : this.rotate('r');this.stop();break;
-                case"retourner" : this.rotate('l');this.stop();break;
-            }
-        },1000);clearTimeout();});
+        // actions.forEach(e=>{
+        //     setTimeout(() =>{
+        //         switch (e){
+        //             case "avancer" : this.move();this.stop();break;
+        //             case"gauche" : this.rotate('l');this.stop();break;
+        //             case"droite" : this.rotate('r');this.stop();break;
+        //             case"retourner" : this.rotate('l');this.stop();break;
+        //         }
+        //     },1000);
+        // });
+        actions.forEach((e,index)=> {
+            setTimeout(()=>{
+                switch (e){
+                    case "avancer" : this.move();this.stop();break;
+                    case"gauche" : this.rotate('l');this.stop();break;
+                    case"droite" : this.rotate('r');this.stop();break;
+                    case"retourner" : this.rotate('l');this.stop();break;
+                }
+            },index*1000);
+        });
     }
 
     update(deltaTime){
