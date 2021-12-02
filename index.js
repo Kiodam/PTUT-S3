@@ -31,7 +31,7 @@ function gameLoop(timeStamp){
     map.drawMap(context);
     hero.update(deltaTime);
     hero.drawHero(context);
-    requestAnimationFrame(gameLoop)
+    requestAnimationFrame(gameLoop);
 }
 
 gameLoop();

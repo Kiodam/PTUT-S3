@@ -1,9 +1,4 @@
 export default class Hero {
-    static _FACING_UP=0;
-    static _FACING_RIGHT=1;
-    static _FACING_DOWN=2;
-    static _FACING_LEFT =3;
-
     constructor(gameWidth, gameHeight) {
         let cellSize = 50;
         this.gameWidht = gameWidth;
@@ -47,22 +42,22 @@ export default class Hero {
             case 0: {
                 this.speed.y = -this.maxSpeed;
                 this.position.y += this.speed.y;
-            };break;
+            }break;
 
             case 1: {
                 this.speed.x = this.maxSpeed;
                 this.position.x += this.speed.x;
-            };break;
+            }break;
 
             case 2: {
                 this.speed.y = this.maxSpeed;
                 this.position.y += this.speed.y;
-            };break;
+            }break;
 
             case 3: {
                 this.speed.x = -this.maxSpeed;
                 this.position.x += this.speed.x;
-            };break;
+            }break;
         }
     }
 
@@ -83,28 +78,20 @@ export default class Hero {
 
     }
 
-    // moveRight(){
-    //     // this.speed.x = this.maxSpeed;
-    //     // this.position.x += this.speed.x;
-    //     this.currentDirection=Hero._FACING_RIGHT;
-    // }
-    // moveUp(){
-    //     this.speed.y = -this.maxSpeed ;
-    //     this.position.y += this.speed.y;
-    // }
-    // moveLeft(){
-    //     // this.speed.x = -this.maxSpeed;
-    //     // this.position.x += this.speed.x;
-    //     this.currentDirection=Hero._FACING_LEFT;
-    // }
-    // moveDown(){
-    //     this.speed.y = this.maxSpeed;
-    //     this.position.y += this.speed.y;
-    // }
-
     stop(){
         this.speed.x = 0;
         this.speed.y = 0;
+    }
+
+    execute(actions){
+        actions.forEach(e=>{setInterval(() =>{
+            switch (e){
+                case "avancer" : this.move();this.stop();break;
+                case"gauche" : this.rotate('l');this.stop();break;
+                case"droite" : this.rotate('r');this.stop();break;
+                case"retourner" : this.rotate('l');this.stop();break;
+            }
+        },1000);clearTimeout();});
     }
 
     update(deltaTime){

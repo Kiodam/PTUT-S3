@@ -1,25 +1,43 @@
 export default class ControllerHero{
     constructor(hero) {
         let div = document.getElementById("actions");
-        document.getElementById('gauche').addEventListener('click',event=>{
-            hero.rotate('l');
-            hero.stop();
+        // let panel = document.getElementById("playerCommandPanel");
+        let actions = [];
+        document.getElementById('gauche').addEventListener('click',()=>{
+            // hero.rotate('l');
+            // hero.stop();
+            actions.push("gauche");
             div.innerHTML += "Gauche" + "<br />";
+            // panel.innerHTML += "Gauche" + "<br />";
+            console.log("gauche",actions);
         });
-        document.getElementById('bas').addEventListener('click',event=>{
-            hero.move();
-            hero.stop();
-            div.innerHTML += "Bas" + "<br />";
+        document.getElementById('avancer').addEventListener('click',()=>{
+            // hero.move();
+            // hero.stop();
+            actions.push("avancer");
+            div.innerHTML += "Avancer" + "<br />";
+            // panel.innerHTML += "Gauche" + "<br />";
+            console.log("avancer",actions);
         });
-        document.getElementById('haut').addEventListener('click',event=>{
-            hero.move();
-            hero.stop();
+        document.getElementById('haut').addEventListener('click',()=>{
+            // hero.move();
+            // hero.stop();
+            actions.push("avancer");
+            // panel.innerHTML += "Gauche" + "<br />";
             div.innerHTML += "Haut" + "<br />";
         });
-        document.getElementById('droite').addEventListener('click',event=>{
-            hero.rotate('r');
-            hero.stop();
+        document.getElementById('droite').addEventListener('click',()=>{
+            // hero.rotate('r');
+            // hero.stop();
+            actions.push("droite");
+            // panel.innerHTML += "Gauche" + "<br />";
             div.innerHTML += "Droite" + "<br />";
+            console.log("droite",actions);
+        });
+        document.getElementById('execute').addEventListener('click',()=>{
+           hero.execute(actions);
+           div.innerHTML = "";
+           actions.splice(0,actions.length);
         });
 
     }
