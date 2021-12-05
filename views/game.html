@@ -21,7 +21,6 @@
             </nav>
             <a class="cta" href="#"><button>Mon compte</button></a>
         </header>
-
         <div id="gamePanel">
             <div class="scoreBoard">
                 <div>LvL 1 : Tutoriel</div>
@@ -39,10 +38,11 @@
                         <button id="avancer" onclick="start(event, 'avancer')">Avancer</button>
                         <button id="haut" onclick="start(event, 'haut')">Haut</button>
                         <button id="droite" onclick="start(event, 'droite')">Droite</button>
-                        <button id="execute">Executer</button>
                     </div>
                     <script type="module" src="../index.js"></script>
                 </div>
+                <button class="gameBut" onclick="execute()">Executer</button>
+                <button class="gameBut" onclick="clear()">clear</button>
                 <div id="playerCommandPanel">
                 </div>
             </div>

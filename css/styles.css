@@ -116,3 +116,15 @@ button:hover {
 #test{
     padding: 20px;
 }
+
+.gameBut {
+    position: relative;
+    top: 18px;
+    left: 55px;
+}
+#buttons {
+    padding: 10px;
+    border: black 2px solid;
+    margin: 20px;
+    background-color: lightgreen;
+}
