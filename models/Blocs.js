@@ -62,3 +62,10 @@ function start(event, id) {
     };
 }
 
+function clear(){
+    canvas.removeChild();
+}
+
+function execute(){
+
+}
