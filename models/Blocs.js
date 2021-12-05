@@ -1,3 +1,22 @@
+export default class Blocs {
+    static counter=0;
+    constructor(name,category,color) {
+        Blocs.counter++;
+        this.id=Blocs.counter;
+        this.name = name;
+        this.category = category;
+        this.color = color;
+    }
+
+    creatediv(){
+        var div = document.createElement('div');
+        div.id=this.id;
+        div.innerHTML=this.name;
+        div.className = this.category;
+        document.getElementById('buttons').appendChild(div);
+    }
+}
+
 const canvas = document.getElementById('playerCommandPanel');
 
 function start(event, id) {
