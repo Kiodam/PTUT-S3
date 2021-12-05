@@ -1,5 +1,6 @@
 import Hero from "./models/Hero.js";
 import Map from "./models/Map.js";
+import Level from "./models/Level.js";
 import ControllerHero from "./controllers/controllerHero.js";
 
 let canvas = document.getElementById("canvaMap");
@@ -12,7 +13,8 @@ const GAME_WIDTH = GAME_WIDTH_CASES*50;
 const GAME_HEIGHT = GAME_HEIGHT_CASES*50;
 
 let hero = new Hero(GAME_WIDTH, GAME_HEIGHT);
-let map = new Map(GAME_WIDTH_CASES,GAME_HEIGHT_CASES);
+let level = new Level("Level1","Beginning",[5,4])
+let map = new Map(GAME_WIDTH_CASES,GAME_HEIGHT_CASES,level);
 canvas.width=GAME_WIDTH;
 canvas.height= GAME_HEIGHT;
 
