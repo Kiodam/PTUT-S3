@@ -124,7 +124,7 @@ button:hover {
 }
 #buttons {
     padding: 10px;
-    border: black 2px solid;
+    border: #4b9c4b 2px solid;
     margin: 20px;
     background-color: lightgreen;
 }
