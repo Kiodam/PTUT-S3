@@ -1,5 +1,5 @@
 export default class ControllerHero{
-    constructor(hero) {
+    constructor(hero,controllerMap) {
         let div = document.getElementById("actions");
         // let panel = document.getElementById("playerCommandPanel");
         let actions = [];

@@ -2,6 +2,7 @@ import Hero from "./models/Hero.js";
 import Map from "./models/Map.js";
 import Level from "./models/Level.js";
 import ControllerHero from "./controllers/controllerHero.js";
+import ControllerMap from "./controllers/controllerMap.js";
 
 let canvas = document.getElementById("canvaMap");
 let context = canvas.getContext("2d");
@@ -21,7 +22,8 @@ canvas.height= GAME_HEIGHT;
 document.getElementById("playerCommandPanel").height=GAME_HEIGHT;
 document.getElementById("board").width=GAME_WIDTH;
 
-new ControllerHero(hero);
+new ControllerHero(hero,new ControllerMap(map,hero));
+
 
 let lastTime = 0;
 

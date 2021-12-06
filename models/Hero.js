@@ -102,6 +102,8 @@ export default class Hero {
                     case"droite" : this.rotate('r');this.stop();break;
                     case"retourner" : this.rotate('l');this.stop();break;
                 }
+                console.log("hero",this.position.x/50,this.position.y/50);
+
             },index*1000);
         });
     }
