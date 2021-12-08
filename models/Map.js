@@ -3,7 +3,7 @@ export default class Map{
         this.mapWidth = mapWidth;
         this.mapHeight = mapHeight;
         this.cellSize = 50;
-        this.level = level;
+        this._level = level;
     }
 
     drawMap(context){
@@ -14,6 +14,10 @@ export default class Map{
             }
         }
         context.fillStyle="green";
-        context.fillRect(this.level.endLevel[0]*this.cellSize+2,this.level.endLevel[1]*this.cellSize+2,this.cellSize-4,this.cellSize-4);
+        context.fillRect(this._level.endLevel[0]*this.cellSize+2,this._level.endLevel[1]*this.cellSize+2,this.cellSize-4,this.cellSize-4);
+    }
+
+    get level() {
+        return this._level;
     }
 }
