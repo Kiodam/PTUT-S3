@@ -12,6 +12,7 @@ const GAME_WIDTH_CASES = 12;
 const GAME_HEIGHT_CASES = 12;
 const GAME_WIDTH = GAME_WIDTH_CASES*50;
 const GAME_HEIGHT = GAME_HEIGHT_CASES*50;
+const cellSize = 50;
 
 let hero = new Hero(GAME_WIDTH, GAME_HEIGHT);
 let level = new Level("Level1","Beginning",[5,4])
@@ -36,6 +37,11 @@ function gameLoop(timeStamp){
     hero.update(deltaTime);
     hero.drawHero(context);
     requestAnimationFrame(gameLoop);
+
+    if((map.level.endLevel[0] === hero.position.x/cellSize)&&(map.level.endLevel[1] === hero.position.y/cellSize)){
+        alert("Test");
+        location.href='../index.html';
+    }
 }
 
 gameLoop();
