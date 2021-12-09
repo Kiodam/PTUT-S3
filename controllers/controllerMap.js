@@ -4,7 +4,7 @@ export default class ControllerMap{
         this.map=map;
     }
     checkWin(){
-        console.log("map",this.hero.position.x/this.map.cellSize,this.hero.position.y/this.map.cellSize);
+        console.log("hero pos on map",this.hero.position.x/this.map.cellSize,this.hero.position.y/this.map.cellSize);
         console.log(this.map.level.endLevel);
         if ((this.hero.position.x/this.map.cellSize===this.map.level.endLevel[0])&&(this.hero.position.y/this.map.cellSize===this.map.level.endLevel[1])){
             console.log("VUICOTRY!!!!");

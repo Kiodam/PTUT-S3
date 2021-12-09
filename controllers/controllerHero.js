@@ -34,8 +34,10 @@ export default class ControllerHero{
             div.innerHTML += "Droite" + "<br />";
             console.log("droite",actions);
         });
-        document.getElementById('execute').addEventListener('click',()=>{
-           hero.execute(actions);
+        document.getElementById('execute').addEventListener('click',async ()=>{
+           await hero.execute(actions);
+           controllerMap.checkWin();
+           console.log("effectué");
            div.innerHTML = "";
            actions.splice(0,actions.length);
         });

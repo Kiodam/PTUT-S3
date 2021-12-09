@@ -38,10 +38,10 @@ function gameLoop(timeStamp){
     hero.drawHero(context);
     requestAnimationFrame(gameLoop);
 
-    if((map.level.endLevel[0] === hero.position.x/cellSize)&&(map.level.endLevel[1] === hero.position.y/cellSize)){
-        alert("Test");
-        location.href='../index.html';
-    }
+    // if((map.level.endLevel[0] === hero.position.x/cellSize)&&(map.level.endLevel[1] === hero.position.y/cellSize)){
+    //     // alert("Test");
+    //     // location.href='../index.html';
+    //}
 }
 
 gameLoop();

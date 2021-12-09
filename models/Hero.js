@@ -94,7 +94,13 @@ export default class Hero {
         //         }
         //     },1000);
         // });
-        actions.forEach((e,index)=> {
+        actions.forEach(async (e)=> {
+            await this.execTimeOut(e);
+        });
+    }
+
+    execTimeOut(e){
+        let p = new Promise(((resolve, reject) => {
             setTimeout(()=>{
                 switch (e){
                     case "avancer" : this.move();this.stop();break;
@@ -102,10 +108,12 @@ export default class Hero {
                     case"droite" : this.rotate('r');this.stop();break;
                     case"retourner" : this.rotate('l');this.stop();break;
                 }
-                console.log("hero",this.position.x/50,this.position.y/50);
+                console.log("hero coord",this.position.x/50,this.position.y/50);
+                resolve();
 
-            },index*1000);
-        });
+            },1000);
+        }));
+
     }
 
     update(deltaTime){
