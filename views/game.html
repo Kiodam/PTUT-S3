@@ -34,21 +34,22 @@
                         <div id="actions" class="containerTxt"></div>
                     </div>
                     <div id="buttons">
-                        <button id="gauche">Gauche</button>
-                        <button id="avancer">Avancer</button>
-                        <button id="haut">Haut</button>
-                        <button id="droite">Droite</button>
+                        <button id="gauche" class="buttonDraggable" onclick="start(event, 'gauche')" draggable="true" ondragstart="onDragStart(event);">Gauche</button>
+                        <button id="avancer" class="buttonDraggable" onclick="start(event, 'gauche')" draggable="true" ondragstart="onDragStart(event);">Avancer</button>
+                        <button id="haut" class="buttonDraggable" onclick="start(event, 'gauche')" draggable="true" ondragstart="onDragStart(event);">Haut</button>
+                        <button id="droite" class="buttonDraggable" onclick="start(event, 'gauche')" draggable="true" ondragstart="onDragStart(event);">Droite</button>
                         <button id="execute">Executer</button>
                     </div>
                     <script type="module" src="../index.js"></script>
                 </div>
-                <button class="gameBut" onclick="execute()">Executer</button>
+                <button class="gameBut" onclick="test()" >Executer</button>
                 <button class="gameBut" onclick="clear()">clear</button>
-                <div id="playerCommandPanel">
+                <div id="playerCommandPanel" class="playerCmdPanel" ondragover="onDragOver(event)" ondrop="onDrop(event); clone(event)">
                 </div>
             </div>
 
         </div>
         <script type="text/javascript" src="../models/Blocs.js"></script>
+        <script type="text/javascript" src="../controllers/DragNDrop.js"></script>
     </body>
 </html>
