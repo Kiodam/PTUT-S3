@@ -84,37 +84,19 @@ export default class Hero {
     }
 
     execute(actions){
-        // actions.forEach(e=>{
-        //     setTimeout(() =>{
-        //         switch (e){
-        //             case "avancer" : this.move();this.stop();break;
-        //             case"gauche" : this.rotate('l');this.stop();break;
-        //             case"droite" : this.rotate('r');this.stop();break;
-        //             case"retourner" : this.rotate('l');this.stop();break;
-        //         }
-        //     },1000);
-        // });
-        actions.forEach(async (e)=> {
-            await this.execTimeOut(e);
-        });
+        for(let i=0; i<actions.length;i++){
+            switch (actions[i]){
+                case "avancer" : this.move();this.stop();break;
+                case"gauche" : this.rotate('l');this.stop();break;
+                case"droite" : this.rotate('r');this.stop();break;
+                case"retourner" : this.rotate('l');this.stop();break;
+            }
+            setTimeout(null,1000);
+            console.log("hero coord",this.position.x/50,this.position.y/50);
+            console.log("in for:"+actions[i]);
+        }
     }
 
-    execTimeOut(e){
-        let p = new Promise(((resolve, reject) => {
-            setTimeout(()=>{
-                switch (e){
-                    case "avancer" : this.move();this.stop();break;
-                    case"gauche" : this.rotate('l');this.stop();break;
-                    case"droite" : this.rotate('r');this.stop();break;
-                    case"retourner" : this.rotate('l');this.stop();break;
-                }
-                console.log("hero coord",this.position.x/50,this.position.y/50);
-                resolve();
-
-            },1000);
-        }));
-
-    }
 
     update(deltaTime){
         this.position.x += this.speed.x;
