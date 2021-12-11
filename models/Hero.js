@@ -83,7 +83,7 @@ export default class Hero {
         this.speed.y = 0;
     }
 
-    execute(actions){
+    async execute(actions){
         for(let i=0; i<actions.length;i++){
             switch (actions[i]){
                 case "avancer" : this.move();this.stop();break;
@@ -91,10 +91,14 @@ export default class Hero {
                 case"droite" : this.rotate('r');this.stop();break;
                 case"retourner" : this.rotate('l');this.stop();break;
             }
-            setTimeout(null,1000);
+            await this.sleep1();
             console.log("hero coord",this.position.x/50,this.position.y/50);
             console.log("in for:"+actions[i]);
         }
+    }
+
+    sleep1(){
+        return new Promise(resolve => setTimeout(resolve,1000));
     }
 
 
