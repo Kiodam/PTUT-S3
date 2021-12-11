@@ -13,19 +13,23 @@ const GAME_WIDTH = GAME_WIDTH_CASES*50;
 const GAME_HEIGHT = GAME_HEIGHT_CASES*50;
 const cellSize = 50;
 
+
+
 let hero = new Hero(GAME_WIDTH, GAME_HEIGHT);
-let level = new Level("Level1","Beginning",[5,4])
+let level = new Level("Level1","Beginning",[5,4]);
 let map = new Map(GAME_WIDTH_CASES,GAME_HEIGHT_CASES,level);
+
+
+level.init();
+
+let controllerHero = new ControllerHero(hero,new ControllerMap(map,hero));
+level.controlHero = controllerHero;
+
 canvas.width=GAME_WIDTH;
 canvas.height= GAME_HEIGHT;
 
 document.getElementById("playerCommandPanel").height=GAME_HEIGHT;
 document.getElementById("board").width=GAME_WIDTH;
-
-level.init();
-
-// new ControllerHero(hero,new ControllerMap(map,hero));
-
 
 
 let lastTime = 0;
@@ -40,10 +44,10 @@ function gameLoop(timeStamp){
     hero.drawHero(context);
     requestAnimationFrame(gameLoop);
 
-    if((map.level.endLevel[0] === hero.position.x/cellSize)&&(map.level.endLevel[1] === hero.position.y/cellSize)){
-        alert("Test");
-        location.href='../index.html';
-    }
+    // if((map.level.endLevel[0] === hero.position.x/cellSize)&&(map.level.endLevel[1] === hero.position.y/cellSize)){
+    //     alert("Test");
+    //     location.href='../index.html';
+    // }
 }
 
 gameLoop();

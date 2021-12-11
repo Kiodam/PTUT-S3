@@ -96,6 +96,7 @@ export default class Hero {
         // });
         actions.forEach((e,index)=> {
             setTimeout(()=>{
+                console.log(e);
                 switch (e){
                     case "avancer" : this.move();this.stop();break;
                     case"gauche" : this.rotate('l');this.stop();break;
@@ -103,7 +104,6 @@ export default class Hero {
                     case"retourner" : this.rotate('l');this.stop();break;
                 }
                 console.log("hero",this.position.x/50,this.position.y/50);
-
             },index*1000);
         });
     }
