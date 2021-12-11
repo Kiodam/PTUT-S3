@@ -62,10 +62,10 @@ function start(event, id) {
     };
 }
 
-function clear(){
-    canvas.removeChild();
-}
+// function clear(){
+//     canvas.removeChild();
+// }
 
-function execute(){
-
-}
+// function execute(){
+//     console.log(document.getElementById("buttons"))
+// }
