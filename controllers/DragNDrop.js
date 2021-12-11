@@ -1,3 +1,5 @@
+import ControllerHero from "./controllerHero";
+
 function onDragStart(event) {
     event
         .dataTransfer
@@ -28,6 +30,7 @@ function clone(event) {
 
     let clone = document.getElementById(id).cloneNode(true);
     document.getElementById("buttons").appendChild(clone);
+    ControllerHero.
 }
 
 function test(){
