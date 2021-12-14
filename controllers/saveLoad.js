@@ -1,27 +1,25 @@
 export default class SaveLoad{
-    constructor(hero, map) {
+    constructor(hero, map,controllerHero) {
         this.hero = hero;
         this.map = map;
+        this.controllerHero = controllerHero;
     }
 
-    save(e){
-        var file = e.target.files[0];
-        if (!file) {
-            return;
-        }
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var contents = e.result.split(/\r\n|\n/);
-            dispatchContent(contents);
-        };
-        reader.readAsText(file);
+    save(){
+        localStorage.setItem("positionHeroX",this.hero.position.x);
+        localStorage.setItem("positionHeroY",this.hero.position.y);
+        localStorage.setItem("actionsHeroController",this.controllerHero.actions);
+        localStorage.setItem("actionsHeroDiv",document.getElementById("actions").innerHTML);
+        localStorage.setItem("positionEndLevel",this.map.level.endLevel);
     }
 
-    dispatchContent(content){
-        if(content!==null){
-            this.hero.position=content[1];
-            this.map.level.endLevel=content[2];
-            document.getElementById("actions").innerHTML=content[3];
-        }
+    getBack(){
+        this.hero.position.x = localStorage.getItem("positionHeroX");
+        this.hero.position.y = localStorage.getItem("positionHeroY");
+        this.controllerHero.actions = localStorage.getItem("actionsHeroController");
+        document.getElementById("actions").innerHTML = localStorage.getItem("actionsHeroDiv");
+        this.map.level.endLevel = localStorage.getItem("positionEndLevel");
+        localStorage.clear();
     }
+
 }

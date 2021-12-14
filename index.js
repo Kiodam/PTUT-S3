@@ -3,6 +3,7 @@ import Map from "./models/Map.js";
 import Level from "./models/Level.js";
 import ControllerHero from "./controllers/controllerHero.js";
 import ControllerMap from "./controllers/controllerMap.js";
+import SaveLoad from "./controllers/saveLoad.js";
 
 let canvas = document.getElementById("canvaMap");
 let context = canvas.getContext("2d");
@@ -23,8 +24,16 @@ canvas.height= GAME_HEIGHT;
 document.getElementById("playerCommandPanel").height=GAME_HEIGHT;
 document.getElementById("board").width=GAME_WIDTH;
 
-new ControllerHero(hero,new ControllerMap(map,hero));
 
+console.log(localStorage);
+let saveLoad = new SaveLoad(hero,map,new ControllerHero(hero,new ControllerMap(map,hero)));
+if (localStorage){
+    saveLoad.getBack();
+    // localStorage.clear();
+}
+window.addEventListener('beforeunload',()=>{
+    saveLoad.save();
+})
 
 let lastTime = 0;
 
@@ -37,11 +46,6 @@ function gameLoop(timeStamp){
     hero.update(deltaTime);
     hero.drawHero(context);
     requestAnimationFrame(gameLoop);
-
-    // if((map.level.endLevel[0] === hero.position.x/cellSize)&&(map.level.endLevel[1] === hero.position.y/cellSize)){
-    //     // alert("Test");
-    //     // location.href='../index.html';
-    //}
 }
 
 gameLoop();
