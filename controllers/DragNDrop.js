@@ -30,7 +30,7 @@ function clone(event) {
 
     let clone = document.getElementById(id).cloneNode(true);
     document.getElementById("buttons").appendChild(clone);
-    ControllerHero.
+    // ControllerHero.
 }
 
 function test(){
