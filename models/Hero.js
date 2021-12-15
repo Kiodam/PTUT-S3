@@ -1,5 +1,5 @@
 export default class Hero {
-    constructor(gameWidth, gameHeight) {
+    constructor(gameWidth, gameHeight,position) {
         let cellSize = 50;
         this.gameWidht = gameWidth;
         this.gameHeight = gameHeight;
@@ -13,8 +13,8 @@ export default class Hero {
         }
 
         this.position = {
-            x : this.width*5,
-            y : this.height*3
+            x : this.width*position[0],
+            y : this.height*position[1]
         }
 
         this.hero_img = [];

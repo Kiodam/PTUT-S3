@@ -6,8 +6,8 @@ export default class SaveLoad{
     }
 
     save(){
-        localStorage.setItem("positionHeroX",this.hero.position.x);
-        localStorage.setItem("positionHeroY",this.hero.position.y);
+        localStorage.setItem("positionHeroX",this.hero.position.x/this.map.cellSize);
+        localStorage.setItem("positionHeroY",this.hero.position.y/this.map.cellSize);
         localStorage.setItem("actionsHeroController",this.controllerHero.actions);
         localStorage.setItem("actionsHeroDiv",document.getElementById("actions").innerHTML);
         localStorage.setItem("positionEndLevel",this.map.level.endLevel);

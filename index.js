@@ -15,7 +15,7 @@ const GAME_WIDTH = GAME_WIDTH_CASES*50;
 const GAME_HEIGHT = GAME_HEIGHT_CASES*50;
 const cellSize = 50;
 
-let hero = new Hero(GAME_WIDTH, GAME_HEIGHT);
+let hero = new Hero(GAME_WIDTH, GAME_HEIGHT,[5,3]);
 let level = new Level("Level1","Beginning",[5,4])
 let map = new Map(GAME_WIDTH_CASES,GAME_HEIGHT_CASES,level);
 canvas.width=GAME_WIDTH;
@@ -26,11 +26,13 @@ document.getElementById("board").width=GAME_WIDTH;
 
 
 console.log(localStorage);
-let saveLoad = new SaveLoad(hero,map,new ControllerHero(hero,new ControllerMap(map,hero)));
 if (localStorage){
-    saveLoad.getBack();
-    // localStorage.clear();
+    // saveLoad.getBack();
+
+    localStorage.clear();
 }
+let saveLoad = new SaveLoad(hero,map,new ControllerHero(hero,new ControllerMap(map,hero)));
+
 window.addEventListener('beforeunload',()=>{
     saveLoad.save();
 })
