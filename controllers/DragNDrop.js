@@ -1,5 +1,3 @@
-import ControllerHero from "./controllerHero";
-
 function onDragStart(event) {
     event
         .dataTransfer
@@ -19,8 +17,7 @@ function onDrop(event) {
     const dropzone = event.target;
     dropzone.appendChild(draggableElement);
     event
-        .dataTransfer
-        .clearData();
+        .dataTransfer;
 }
 
 function clone(event) {
@@ -30,10 +27,9 @@ function clone(event) {
 
     let clone = document.getElementById(id).cloneNode(true);
     document.getElementById("buttons").appendChild(clone);
-    // ControllerHero.
 }
 
-function test(){
+function execute(){
     let blocs = document.getElementById("playerCommandPanel")
     console.log(blocs)
 }
