@@ -1,7 +1,9 @@
 function onDragStart(event) {
     event
         .dataTransfer
-        .setData('text/plain', event.target.id);
+        .setData('text', event.target.id);
+    console.log(event
+        .dataTransfer.getData('text'));
 }
 
 function onDragOver(event) {
@@ -12,12 +14,10 @@ function onDrop(event) {
     const id = event
         .dataTransfer
         .getData('text');
-
+    console.log(id);
     const draggableElement = document.getElementById(id);
     const dropzone = event.target;
     dropzone.appendChild(draggableElement);
-    event
-        .dataTransfer;
 }
 
 function clone(event) {
@@ -26,7 +26,8 @@ function clone(event) {
         .getData('text');
 
     let clone = document.getElementById(id).cloneNode(true);
-    document.getElementById("buttons").appendChild(clone);
+    clone.id = id+1;
+    document.getElementById("playerCommandPanel").appendChild(clone);
 }
 
 function execute(){
