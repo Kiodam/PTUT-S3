@@ -102,17 +102,55 @@ export default class Hero {
     }
 
 
-    update(deltaTime){
+    update(deltaTime,map){
         this.position.x += this.speed.x;
         this.position.y += this.speed.y;
 
-        if(this.position.x<0) this.position.x =0;
-        if (this.position.y<0) this.position.y = 0;
+        if(this.position.x<0){
+            this.position.x =0;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
+        }
+        if (this.position.y<0){
+            this.position.y = 0;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
+        }
         if(this.position.x + this.width >this.gameWidht){
             this.position.x = this.gameWidht-this.width;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
         }
         if(this.position.y + this.height > this.gameHeight){
             this.position.y = this.gameHeight-this.height;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
+        }
+        if (map.walls[(this.position.x/map.cellSize)+(this.position.y/map.cellSize)*12]===1){
+            this.position.x-=this.speed.x;
+            this.position.y-=this.speed.y;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
         }
     }
 }

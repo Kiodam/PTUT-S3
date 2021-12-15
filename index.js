@@ -35,7 +35,7 @@ let saveLoad = new SaveLoad(hero,map,new ControllerHero(hero,new ControllerMap(m
 
 window.addEventListener('beforeunload',()=>{
     saveLoad.save();
-})
+});
 
 let lastTime = 0;
 
@@ -45,7 +45,7 @@ function gameLoop(timeStamp){
 
     context.clearRect(0,0,canvas.width, canvas.height);
     map.drawMap(context);
-    hero.update(deltaTime);
+    hero.update(deltaTime,map);
     hero.drawHero(context);
     requestAnimationFrame(gameLoop);
 }
