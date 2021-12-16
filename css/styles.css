@@ -109,7 +109,7 @@ button:hover {
     height: 600px;
     padding: 20px;
     margin-top: 20px;
-    background-color: #d99e61;
+    background-color: #686A8DFF;
     border-radius: 5px;
 }
 
@@ -127,4 +127,19 @@ button:hover {
     border: #4b9c4b 2px solid;
     margin: 20px;
     background-color: lightgreen;
+}
+
+.action {
+    padding: 5px;
+    margin: 2px;
+    background-color: #0088a9;
+    border: 2px solid #053642;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#actions {
+    flex-direction: column;
 }

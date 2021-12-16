@@ -51,3 +51,7 @@ function gameLoop(timeStamp){
 }
 
 gameLoop();
+
+function vider(){
+    console.log(document.getElementById('actions'))
+}
