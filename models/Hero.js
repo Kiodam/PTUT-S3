@@ -92,8 +92,6 @@ export default class Hero {
                 case"retourner" : this.rotate('l');this.stop();break;
             }
             await this.sleep1();
-            console.log("hero coord",this.position.x/50,this.position.y/50);
-            console.log("in for:"+actions[i]);
         }
     }
 

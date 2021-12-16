@@ -25,7 +25,6 @@ document.getElementById("playerCommandPanel").height=GAME_HEIGHT;
 document.getElementById("board").width=GAME_WIDTH;
 
 
-console.log(localStorage);
 if (localStorage){
     // saveLoad.getBack();
 
@@ -51,7 +50,3 @@ function gameLoop(timeStamp){
 }
 
 gameLoop();
-
-function vider(){
-    console.log(document.getElementById('actions'))
-}
