@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Jeu</title>
-        <link rel="stylesheet" href="../css/styles.css">
-    </head>
-    <body>
-        <header>
-            <a href="../index.html" class="logo">
-                <img src="../img/logo.png" alt="logo" >
-            </a>
-            <nav>
-                <ul class="nav_links">
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="project.html">Projet</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="game.html">Jeu</a></li>
-                </ul>
-            </nav>
-            <a class="cta" href="account.html"><button>Mon compte</button></a>
-        </header>
-        <div id="center">
-            <div id="gamePanel">
-                <div class="scoreBoard">
-                    <div>LvL 1 : Tutoriel</div>
-                    <div>Score : 0 </div>
-                    <div></div>
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+    <a href="../index.html" class="logo">
+        <img src="../img/logo.png" alt="logo" >
+    </a>
+    <nav>
+        <ul class="nav_links">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="project.html">Projet</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="game.html">Jeu</a></li>
+        </ul>
+    </nav>
+    <a class="cta" href="#"><button>Mon compte</button></a>
+</header>
+<div id="center">
+    <div id="gamePanel">
+        <div class="scoreBoard">
+            <div>LvL 1 : Tutoriel</div>
+            <div>Score : 0 </div>
+            <div></div>
+        </div>
+        <div id="test">
+            <div id="board">
+                <div class="container">
+                    <canvas id="canvaMap"></canvas>
                 </div>
-                <div id="test">
-                    <div id="board">
-                        <div class="container">
-                            <canvas id="canvaMap"></canvas>
-                        </div>
-                        <div id="buttons">
-                            <button id="gauche" class="buttonDraggable">Gauche</button>
-                            <button id="avancer" class="buttonDraggable">Avancer</button>
-                            <button id="droite" class="buttonDraggable">Droite</button>
-                        </div>
-                        <script type="module" src="../index.js"></script>
-                    </div>
-                    <button id="execute" class="gameBut" >Executer</button>
-                    <button id="clear" class="gameBut">clear</button>
-                    <div id="playerCommandPanel" class="playerCmdPanel">
-                        <div id="actions" class="containerTxt"></div>
-                    </div>
+                <div id="buttons">
+                    <button id="gauche" class="buttonDraggable">Gauche</button>
+                    <button id="avancer" class="buttonDraggable">Avancer</button>
+                    <button id="droite" class="buttonDraggable">Droite</button>
                 </div>
+                <script type="module" src="../index.js"></script>
+            </div>
+            <button id="execute" class="gameBut" >Executer</button>
+            <button id="clear" class="gameBut">clear</button>
+            <div id="playerCommandPanel" class="playerCmdPanel">
+                <div id="actions" class="containerTxt"></div>
             </div>
         </div>
-    </body>
+
+    </div>
+</div>
+</body>
 </html>
