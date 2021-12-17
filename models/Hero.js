@@ -1,5 +1,5 @@
 export default class Hero {
-    constructor(gameWidth, gameHeight) {
+    constructor(gameWidth, gameHeight,position) {
         let cellSize = 50;
         this.gameWidht = gameWidth;
         this.gameHeight = gameHeight;
@@ -13,8 +13,8 @@ export default class Hero {
         }
 
         this.position = {
-            x : this.width*5,
-            y : this.height*3
+            x : this.width*position[0],
+            y : this.height*position[1]
         }
 
         this.hero_img = [];
@@ -83,42 +83,72 @@ export default class Hero {
         this.speed.y = 0;
     }
 
-    execute(actions){
-        // actions.forEach(e=>{
-        //     setTimeout(() =>{
-        //         switch (e){
-        //             case "avancer" : this.move();this.stop();break;
-        //             case"gauche" : this.rotate('l');this.stop();break;
-        //             case"droite" : this.rotate('r');this.stop();break;
-        //             case"retourner" : this.rotate('l');this.stop();break;
-        //         }
-        //     },1000);
-        // });
-        actions.forEach((e,index)=> {
-            setTimeout(()=>{
-                console.log(e);
-                switch (e){
-                    case "avancer" : this.move();this.stop();break;
-                    case"gauche" : this.rotate('l');this.stop();break;
-                    case"droite" : this.rotate('r');this.stop();break;
-                    case"retourner" : this.rotate('l');this.stop();break;
-                }
-                console.log("hero",this.position.x/50,this.position.y/50);
-            },index*1000);
-        });
+    async execute(actions){
+        for(let i=0; i<actions.length;i++){
+            switch (actions[i]){
+                case "avancer" : this.move();this.stop();break;
+                case"gauche" : this.rotate('l');this.stop();break;
+                case"droite" : this.rotate('r');this.stop();break;
+                case"retourner" : this.rotate('l');this.stop();break;
+            }
+            await this.sleep1();
+        }
     }
 
-    update(deltaTime){
+    sleep1(){
+        return new Promise(resolve => setTimeout(resolve,1000));
+    }
+
+
+    update(deltaTime,map){
         this.position.x += this.speed.x;
         this.position.y += this.speed.y;
 
-        if(this.position.x<0) this.position.x =0;
-        if (this.position.y<0) this.position.y = 0;
+        if(this.position.x<0){
+            this.position.x =0;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
+        }
+        if (this.position.y<0){
+            this.position.y = 0;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
+        }
         if(this.position.x + this.width >this.gameWidht){
             this.position.x = this.gameWidht-this.width;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
         }
         if(this.position.y + this.height > this.gameHeight){
             this.position.y = this.gameHeight-this.height;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
+        }
+        if (map.walls[(this.position.x/map.cellSize)+(this.position.y/map.cellSize)*12]===1){
+            this.position.x-=this.speed.x;
+            this.position.y-=this.speed.y;
+            if(confirm("Scroutch! Voulez-vous recommencer?")){
+
+                window.location.href="../views/game.html"
+            }else{
+                window.location.href="../index.html";
+            }
         }
     }
 }

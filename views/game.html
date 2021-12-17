@@ -1,4 +1,3 @@
-<!--todo: régler problème avec playerCommandPanel -->
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -21,28 +20,32 @@
             </nav>
             <a class="cta" href="account.html"><button>Mon compte</button></a>
         </header>
-        <div id="gamePanel">
-            <div class="scoreBoard">
-                <div>LvL 1 : Tutoriel</div>
-                <div>Score : 0 </div>
-                <div></div>
-            </div>
-            <div id="test">
-                <div id="board">
-                    <div class="container">
-                        <canvas id="canvaMap"></canvas>
+        <div id="center">
+            <div id="gamePanel">
+                <div class="scoreBoard">
+                    <div>LvL 1 : Tutoriel</div>
+                    <div>Score : 0 </div>
+                    <div></div>
+                </div>
+                <div id="test">
+                    <div id="board">
+                        <div class="container">
+                            <canvas id="canvaMap"></canvas>
+                        </div>
+                        <div id="buttons">
+                            <button id="gauche" class="buttonDraggable">Gauche</button>
+                            <button id="avancer" class="buttonDraggable">Avancer</button>
+                            <button id="droite" class="buttonDraggable">Droite</button>
+                        </div>
+                        <script type="module" src="../index.js"></script>
+                    </div>
+                    <button id="execute" class="gameBut" >Executer</button>
+                    <button id="clear" class="gameBut">clear</button>
+                    <div id="playerCommandPanel" class="playerCmdPanel">
                         <div id="actions" class="containerTxt"></div>
                     </div>
-                    <div id="buttons">
-                    </div>
-                    <script type="module" src="../index.js"></script>
-                </div>
-                <button id="execute" class="gameBut">executer</button>
-                <button id="clear" class="gameBut">clear</button>
-                <div id="playerCommandPanel">
                 </div>
             </div>
-
         </div>
     </body>
 </html>

@@ -22,7 +22,6 @@ export default class Level {
             // let panel = document.getElementById("playerCommandPanel");
             but.addEventListener('click',()=>{
                 document.getElementById('actions').innerHTML += but.name + "<br />";
-                console.log('addAction : ' + but.name);
                 this.controlHero.addAction(but.name);
             });
             document.getElementById('buttons').appendChild(but);
