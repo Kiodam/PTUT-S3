@@ -1,6 +1,5 @@
 export default class ControllerHero{
     constructor(hero,controllerMap) {
-        console.log(hero)
         this.actions = []
         document.getElementById('gauche').addEventListener('click',()=>{
             let div = document.createElement('div');
@@ -8,7 +7,6 @@ export default class ControllerHero{
             div.className = "action"
             div.innerHTML += "Gauche" + "<br />";
             document.getElementById('actions').appendChild(div);
-            console.log("gauche")
         });
         document.getElementById('avancer').addEventListener('click',()=>{
             let div = document.createElement('div');
@@ -16,7 +14,6 @@ export default class ControllerHero{
             div.className = "action"
             div.innerHTML += "Avancer" + "<br />";
             document.getElementById('actions').appendChild(div);
-            console.log("avancer")
         });
         document.getElementById('droite').addEventListener('click',()=>{
             let div = document.createElement('div');
@@ -24,7 +21,6 @@ export default class ControllerHero{
             div.className = "action"
             div.innerHTML += "Droite" + "<br />";
             document.getElementById('actions').appendChild(div);
-            console.log("droite")
         });
         document.getElementById('execute').addEventListener('click',async()=>{
             let div = document.createElement('div');
