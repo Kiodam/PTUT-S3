@@ -21,7 +21,6 @@ let map = new Map(GAME_WIDTH_CASES,GAME_HEIGHT_CASES,level);
 
 let controllerHero = new ControllerHero(hero,new ControllerMap(map,hero));
 level.controlHero = controllerHero;
-
 canvas.width=GAME_WIDTH;
 canvas.height= GAME_HEIGHT;
 
@@ -33,7 +32,7 @@ if (localStorage){
 
     localStorage.clear();
 }
-let saveLoad = new SaveLoad(hero,map,new ControllerHero(hero,new ControllerMap(map,hero)));
+let saveLoad = new SaveLoad(hero,map,controllerHero);
 
 window.addEventListener('beforeunload',()=>{
     saveLoad.save();

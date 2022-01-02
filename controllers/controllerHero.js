@@ -1,5 +1,6 @@
 export default class ControllerHero{
     constructor(hero,controllerMap) {
+        console.log(hero)
         this.actions = []
         document.getElementById('gauche').addEventListener('click',()=>{
             let div = document.createElement('div');
